@@ -33,7 +33,7 @@ jobs:
         node-version: 14.x
     - run: npm i
     - run: npm run build --if-present
-    - run: dokcer build -t ${{ secrets.Server }}/ahmad/react-app .
+    - run: docker build -t ${{ secrets.Server }}/ahmad/react-app .
     - run: docker push ${{ secrets.Server }}/ahmad/react-app
     
 
