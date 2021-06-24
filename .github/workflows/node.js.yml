@@ -1,0 +1,41 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+ 
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    # login to acr 
+    - name: Azure Container Registry Login
+      uses: Azure/docker-login@v1
+      with:
+        # Container registry username
+        username: ${{ secrets.User }}
+        # Container registry password
+        password: ${{ secrets.Password }}
+        # Container registry server url
+        login-server: ${{ secrets.Server }}
+        
+        
+    - uses: actions/checkout@v2
+    - name: Use Node.js 
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14.x
+    - run: npm i
+    - run: npm run build --if-present
+    - run: docker build -t ${{ secrets.Server }}/ahmad/react-app .
+    - run: docker push ${{ secrets.Server }}/ahmad/react-app
+    
+
+        
+
