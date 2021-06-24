@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          simple CI CD projekt 
+          simple CI CD project 
         </a>
       </header>
     </div>
