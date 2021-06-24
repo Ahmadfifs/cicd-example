@@ -7,15 +7,15 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello World 
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/Ahmadfifs/cicd-example"
           target="_blank"
           rel="noopener noreferrer"
         >
-          hello abduaziz
+          simple CI CD projekt 
         </a>
       </header>
     </div>
